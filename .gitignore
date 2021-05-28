@@ -1,3 +1,5 @@
+public/
+.cache/
 .env
 .envrc
 dist/
