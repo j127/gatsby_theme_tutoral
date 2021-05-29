@@ -3,8 +3,8 @@ const fs = require("fs");
 /**
  * Create the content directory if it doesn't exist.
  */
-exports.onPreBootstrap = ({ reporter }) => {
-    const contentPath = "data";
+exports.onPreBootstrap = ({ reporter }, options) => {
+    const contentPath = options.contentPath || "data";
 
     if (!fs.existsSync(contentPath)) {
         reporter.info(`creating the ${contentPath} directory`);
@@ -32,8 +32,8 @@ exports.sourceNodes = ({ actions }) => {
 /**
  * Define resolvers for any custom fields (slug)
  */
-exports.createResolvers = ({ createResolvers }) => {
-    const basePath = "/";
+exports.createResolvers = ({ createResolvers }, options) => {
+    const basePath = options.basePath || "/";
     const slugify = (str) => {
         const slug = str
             .toLowerCase()
@@ -52,8 +52,8 @@ exports.createResolvers = ({ createResolvers }) => {
     });
 };
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-    const basePath = "/";
+exports.createPages = async ({ actions, graphql, reporter }, options) => {
+    const basePath = options.basePath || "/";
     actions.createPage({
         path: basePath,
         component: require.resolve("./src/templates/events.js"),
