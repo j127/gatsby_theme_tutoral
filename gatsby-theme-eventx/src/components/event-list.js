@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "gatsby";
+import { Themed } from "theme-ui";
 
 const EventList = ({ events }) => {
     console.log(events);
     return (
         <>
-            <h1>Upcoming Events</h1>
-            <ul>
+            <Themed.h1>Upcoming Events</Themed.h1>
+            <Themed.ul>
                 {events.map((event) => (
-                    <li key={event.id}>
+                    <Themed.li key={event.id}>
                         <Link to={event.slug}>{event.name}</Link>
                         <br />
                         {new Date(event.startDate).toLocaleDateString("en-US", {
@@ -17,9 +18,9 @@ const EventList = ({ events }) => {
                             year: "numeric",
                         })}{" "}
                         in {event.location}
-                    </li>
+                    </Themed.li>
                 ))}
-            </ul>
+            </Themed.ul>
         </>
     );
 };

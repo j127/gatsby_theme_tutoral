@@ -1,10 +1,11 @@
 import React from "react";
+import { Heading, Container } from "theme-ui";
 
 const Layout = ({ children }) => {
     return (
         <div>
-            <h1>Events</h1>
-            {children}
+            <Heading>EventX Theme</Heading>
+            <Container>{children}</Container>
         </div>
     );
 };
