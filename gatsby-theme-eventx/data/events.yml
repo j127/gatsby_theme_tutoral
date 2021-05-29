@@ -1,7 +1,7 @@
 - name: Event 1
   location: Berkeley
   start_date: 2021-05-27
-  end_date: 2021-05-28
+  end_date: 2021-05-27
   url: https://example.com/1
 
 - name: Event 2
